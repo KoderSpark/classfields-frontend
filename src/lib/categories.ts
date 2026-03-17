@@ -1,0 +1,46 @@
+import { Home as HomeIcon, Wrench, Heart, Scissors, Car, Monitor, Briefcase, Utensils, HardHat, BookOpen, Music, Scale, DollarSign, Truck, PawPrint, Sparkles, Calendar, Camera, Dumbbell } from 'lucide-react';
+import { Category } from './api';
+
+export const categoryIcons: Record<string, typeof HomeIcon> = {
+  'Real Estate': HomeIcon,
+  'Home Services': Wrench,
+  'Health & Wellness': Heart,
+  'Beauty & Personal Care': Scissors,
+  'Automotive': Car,
+  'Technology': Monitor,
+  'Professional Services': Briefcase,
+  'Food & Catering': Utensils,
+  'Construction': HardHat,
+  'Education': BookOpen,
+  'Entertainment': Music,
+  'Legal Services': Scale,
+  'Financial Services': DollarSign,
+  'Transportation': Truck,
+  'Pet Services': PawPrint,
+  'Cleaning': Sparkles,
+  'Event Planning': Calendar,
+  'Photography': Camera,
+  'Fitness': Dumbbell,
+};
+
+export const defaultCategories: Category[] = [
+  { id: '1', name: 'Real Estate', subcategories: ['Property Sales', 'Property Rentals', 'Real Estate Consulting'] },
+  { id: '2', name: 'Home Services', subcategories: ['Plumbing', 'Electrical', 'Carpentry', 'Painting'] },
+  { id: '3', name: 'Health & Wellness', subcategories: ['Massage Therapy', 'Nutrition Counseling', 'Fitness Training'] },
+  { id: '4', name: 'Beauty & Personal Care', subcategories: ['Hair Styling', 'Nail Services', 'Skin Care', 'Makeup'] },
+  { id: '5', name: 'Automotive', subcategories: ['Car Repair', 'Car Wash', 'Tire Services', 'Auto Parts'] },
+  { id: '6', name: 'Technology', subcategories: ['IT Support', 'Computer Repair', 'Software Development', 'Web Design'] },
+  { id: '7', name: 'Professional Services', subcategories: ['Business Consulting', 'Accounting', 'Legal Services', 'Marketing'] },
+  { id: '8', name: 'Food & Catering', subcategories: ['Event Catering', 'Restaurant Delivery', 'Food Truck', 'Meal Prep'] },
+  { id: '9', name: 'Construction', subcategories: ['Home Construction', 'Renovation', 'Landscaping', 'Roofing'] },
+  { id: '10', name: 'Education', subcategories: ['Tutoring', 'Language Lessons', 'Music Lessons', 'Test Prep'] },
+  { id: '11', name: 'Entertainment', subcategories: ['Event Planning', 'DJ Services', 'Photography', 'Videography'] },
+  { id: '12', name: 'Legal Services', subcategories: ['Legal Consultation', 'Document Preparation', 'Notary Services'] },
+  { id: '13', name: 'Financial Services', subcategories: ['Financial Planning', 'Tax Services', 'Insurance', 'Investment Advice'] },
+  { id: '14', name: 'Transportation', subcategories: ['Taxi Services', 'Delivery', 'Moving Services', 'Car Rental'] },
+  { id: '15', name: 'Pet Services', subcategories: ['Pet Grooming', 'Veterinary Care', 'Pet Sitting', 'Dog Walking'] },
+  { id: '16', name: 'Cleaning', subcategories: ['House Cleaning', 'Office Cleaning', 'Carpet Cleaning', 'Window Cleaning'] },
+  { id: '17', name: 'Event Planning', subcategories: ['Wedding Planning', 'Corporate Events', 'Party Planning', 'Birthday Parties'] },
+  { id: '18', name: 'Photography', subcategories: ['Portrait Photography', 'Event Photography', 'Commercial Photography'] },
+  { id: '19', name: 'Fitness', subcategories: ['Personal Training', 'Group Classes', 'Yoga', 'Pilates'] },
+];
