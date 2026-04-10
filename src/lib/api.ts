@@ -118,7 +118,10 @@ export async function getAdminProviders(token: string, params: { page?: number, 
   const res = await fetch(`${API_BASE}/api/admin/providers${q}`, {
     headers: { 'Authorization': `Bearer ${token}` }
   });
-  if (!res.ok) throw new Error('Failed to fetch admin providers');
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ error: res.statusText }));
+    throw new Error(err.error || 'Failed to fetch admin providers');
+  }
   return res.json();
 }
 

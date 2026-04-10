@@ -28,15 +28,15 @@ export function AdminPage() {
 
   const fetchData = async () => {
     if (!token) return;
-    try {
-      api.getAdminStats(token).then(setStats).catch(console.error);
-      api.getAdminAnalytics(token).then(data => setAnalytics(data.categories || [])).catch(console.error);
-      const provData = await api.getAdminProviders(token, { page, limit: 10, search: searchQuery });
-      setProviders(provData.providers || []);
-      setTotalPages(provData.totalPages || 1);
-    } catch (err) {
-      console.error('Failed to fetch admin data', err);
-    }
+    // Each API call is independent so one failure doesn't block the others
+    api.getAdminStats(token).then(setStats).catch(console.error);
+    api.getAdminAnalytics(token).then(data => setAnalytics(data.categories || [])).catch(console.error);
+    api.getAdminProviders(token, { page, limit: 10, search: searchQuery })
+      .then(provData => {
+        setProviders(provData.providers || []);
+        setTotalPages(provData.totalPages || 1);
+      })
+      .catch(err => console.error('Failed to fetch admin providers', err));
   };
 
   useEffect(() => {
@@ -114,6 +114,8 @@ export function AdminPage() {
       }
       setFile(null);
       if (fileInputRef.current) fileInputRef.current.value = '';
+      // Refresh data after successful upload
+      fetchData();
     } catch (err: any) {
       setMessage({ type: 'error', text: err.message || 'An error occurred' });
       if (err.details) setDetails(err.details);
